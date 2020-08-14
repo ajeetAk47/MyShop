@@ -57,19 +57,14 @@ public class LoginActivity extends AppCompatActivity {
 
         loadingGif = findViewById(R.id.loading_gif);
 
-        //Then we need a GoogleSignInOptions object
-        //And we need to build it as below
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
 
-        //Then we will get the GoogleSignInClient object from GoogleSignIn class
+
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
-        //Now we will attach a click listener to the sign_in_button
-        //and inside onClick() method we are calling the signIn() method that will open
-        //google sign in intent
         findViewById(R.id.sign_in_button).setOnClickListener(v -> {
             signIn();
             loadingGif.setVisibility(View.VISIBLE);
@@ -81,7 +76,6 @@ public class LoginActivity extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
         if (requestCode == RC_SIGN_IN) {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             try {
@@ -110,9 +104,9 @@ public class LoginActivity extends AppCompatActivity {
                         Log.e(TAG, "signInWithCredential:success");
                         final FirebaseUser user = mAuth.getCurrentUser();
                         // Create a new user with a first and last name
-                        Log.e(TAG, "User Signed In");
+                        Log.d(TAG, "User Signed In");
                         Map<String, String> userMap = new HashMap<>();
-                        userMap.put("Name", user.getDisplayName());
+                        userMap.put("name", user.getDisplayName());
                         userMap.put("email", user.getEmail());
                         userMap.put("profile", String.valueOf(user.getPhotoUrl()));
                         userMap.put("createdDateTime", new SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.US).format(Calendar.getInstance().getTime()));
@@ -125,7 +119,7 @@ public class LoginActivity extends AppCompatActivity {
                             } else {
                                 db.collection("users")
                                         .document(user.getUid()).set(userMap).addOnSuccessListener(aVoid -> {
-                                    Log.e(TAG, "user Created");
+                                    Log.d(TAG, "user Created");
                                     sendUserToHomeActivity();
                                 }).addOnFailureListener(e -> {
                                     Log.e(TAG, "Error adding document", e);
