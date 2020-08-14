@@ -1,4 +1,4 @@
-package com.codingprotocols.myshop;
+package com.codingprotocols.myshop.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 
+import com.codingprotocols.myshop.R;
+import com.codingprotocols.myshop.activities.HomeActivity;
+import com.codingprotocols.myshop.activities.LoginActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class WelcomeActivity extends AppCompatActivity {

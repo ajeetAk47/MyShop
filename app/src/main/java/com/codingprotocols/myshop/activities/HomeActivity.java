@@ -1,8 +1,10 @@
-package com.codingprotocols.myshop;
+package com.codingprotocols.myshop.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.codingprotocols.myshop.R;
 
 public class HomeActivity extends AppCompatActivity {
 
