@@ -8,7 +8,24 @@
 
     <include
         android:id="@+id/toolbar"
-        layout="@layout/toolbar" />
+        layout="@layout/toolbar_home" />
+
+    <com.arlib.floatingsearchview.FloatingSearchView
+        android:id="@+id/floating_search_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/navigationView"
+        android:layout_below="@id/toolbar"
+        android:layout_margin="5dp"
+        android:visibility="invisible"
+        app:floatingSearch_close_search_on_keyboard_dismiss="true"
+        app:floatingSearch_leftActionColor="@color/colorPrimaryDark"
+        app:floatingSearch_leftActionMode="showSearch"
+        app:floatingSearch_searchHint="Search..."
+        app:floatingSearch_showSearchKey="false"
+        app:floatingSearch_suggestionsListAnimDuration="250"
+        app:floatingSearch_viewSuggestionItemTextColor="@color/colorPrimaryDark"
+        app:floatingSearch_viewTextColor="@color/colorPrimaryDark" />
 
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/loading_gif"
@@ -16,7 +33,7 @@
         android:layout_height="150dp"
         android:layout_centerInParent="true"
         android:src="@drawable/loading_gif"
-        android:visibility="invisible"/>
+        android:visibility="invisible" />
 
     <com.luseen.spacenavigation.SpaceNavigationView
         android:id="@+id/navigationView"
@@ -28,9 +45,10 @@
         app:centre_button_color="@color/colorAccent"
         app:inactive_item_color="@color/colorAccent"
         app:space_background_color="@color/colorPrimaryDark"
-        app:centre_button_icon="@drawable/ic_baseline_shopping_cart_24"
+        app:centre_button_icon="@drawable/ic_search_black_24dp"
         app:space_item_icon_size="@dimen/space_item_icon_default_size"
         app:space_item_icon_only_size="@dimen/space_item_icon_only_size"
         app:space_item_text_size="@dimen/space_item_text_default_size" />
+
 
 </RelativeLayout>

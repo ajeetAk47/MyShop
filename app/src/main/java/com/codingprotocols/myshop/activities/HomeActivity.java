@@ -6,24 +6,19 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.arlib.floatingsearchview.FloatingSearchView;
 import com.codingprotocols.myshop.R;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.luseen.spacenavigation.SpaceItem;
 import com.luseen.spacenavigation.SpaceNavigationView;
 import com.luseen.spacenavigation.SpaceOnClickListener;
-import com.luseen.spacenavigation.SpaceOnLongClickListener;
 import com.squareup.picasso.Picasso;
 
 import java.text.MessageFormat;
@@ -37,7 +32,7 @@ public class HomeActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
     private SpaceNavigationView spaceNavigationView;
-
+    private FloatingSearchView mSearchView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,14 +44,15 @@ public class HomeActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
+
         loadingGif = findViewById(R.id.loading_gif);
         loadingGif.setVisibility(View.VISIBLE);
-
+        mSearchView=findViewById(R.id.floating_search_view);
         spaceNavigationView=findViewById(R.id.navigationView);
         spaceNavigationView.initWithSaveInstanceState(savedInstanceState);
         spaceNavigationView.addSpaceItem(new SpaceItem("HOME", R.drawable.ic_baseline_home_24));
         spaceNavigationView.addSpaceItem(new SpaceItem("CATEGORY", R.drawable.ic_baseline_category_24));
-        spaceNavigationView.addSpaceItem(new SpaceItem("SEARCH", R.drawable.ic_baseline_search_24));
+        spaceNavigationView.addSpaceItem(new SpaceItem("CART", R.drawable.ic_baseline_shopping_cart_24));
         spaceNavigationView.addSpaceItem(new SpaceItem("ACCOUNT", R.drawable.ic_baseline_account_circle_24));
         spaceNavigationView.showIconOnly();
 
@@ -67,12 +63,14 @@ public class HomeActivity extends AppCompatActivity {
                 try {
                     String userProfile = String.valueOf(document.get("profile"));
                     Picasso.get().load(userProfile).placeholder(R.drawable.default_photo).into(imageView);
-                    title.setText(MessageFormat.format("Hi, {0}", document.get("name")));
+                    title.setText(MessageFormat.format("Hi, {0}", document.get("name").toString().split(" ")[0]));
 
                 } catch (Exception e) {
                     Log.e(TAG, "Profile fetch error");
                     Picasso.get().load(R.drawable.default_photo).into(imageView);
                     title.setText("Name");
+                }finally {
+                    loadingGif.setVisibility(View.INVISIBLE);
                 }
             } else {
                 Log.d(TAG, "get failed with ", task.getException());
@@ -82,21 +80,47 @@ public class HomeActivity extends AppCompatActivity {
         spaceNavigationView.setSpaceOnClickListener(new SpaceOnClickListener() {
             @Override
             public void onCentreButtonClick() {
-                Toast.makeText(HomeActivity.this,"onCentreButtonClick", Toast.LENGTH_SHORT).show();
-                spaceNavigationView.setCentreButtonSelectable(true);
+                if (mSearchView.getVisibility()==View.VISIBLE){
+                    mSearchView.setVisibility(View.INVISIBLE);
+                }else if(mSearchView.getVisibility()==View.INVISIBLE){
+                    mSearchView.setVisibility(View.VISIBLE); }
             }
 
             @Override
             public void onItemClick(int itemIndex, String itemName) {
-                Toast.makeText(HomeActivity.this, itemIndex + " " + itemName, Toast.LENGTH_SHORT).show();
+                switch (itemIndex){
+                    case 1:
+                        startActivity(new Intent(HomeActivity.this,CategoryActivity.class));
+                        break;
+                    case 2:
+                        startActivity(new Intent(HomeActivity.this, CartActivity.class));
+                        break;
+                    case 3:
+                        startActivity(new Intent(HomeActivity.this,AccountActivity.class));
+                        break;
+                }
             }
 
             @Override
             public void onItemReselected(int itemIndex, String itemName) {
-                Toast.makeText(HomeActivity.this, itemIndex + " " + itemName, Toast.LENGTH_SHORT).show();
+
             }
         });
+
+        mSearchView.setOnQueryChangeListener(new FloatingSearchView.OnQueryChangeListener() {
+            @Override
+            public void onSearchTextChanged(String oldQuery, final String newQuery) {
+
+                //get suggestions based on newQuery
+
+                //pass them on to the search view
+//                mSearchView.swapSuggestions(newSuggestions);
+            }
+        });
+
     }
+
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -106,5 +130,11 @@ public class HomeActivity extends AppCompatActivity {
             finish();
             startActivity(new Intent(this, LoginActivity.class));
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        spaceNavigationView.changeCurrentItem(0);
     }
 }

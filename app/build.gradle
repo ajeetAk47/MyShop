@@ -44,6 +44,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-crashlytics:17.1.1'
     implementation 'com.google.firebase:firebase-perf:19.0.8'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation 'com.github.arimorty:floatingsearchview:2.1.1'
     implementation 'com.github.armcha:SpaceNavigationView:1.6.0'
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.15'
     implementation 'com.google.android.material:material:1.2.0'
