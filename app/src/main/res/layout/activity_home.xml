@@ -17,7 +17,7 @@
         android:layout_above="@id/navigationView"
         android:layout_below="@id/toolbar"
         android:layout_margin="5dp"
-        android:visibility="invisible"
+        android:visibility="gone"
         app:floatingSearch_close_search_on_keyboard_dismiss="true"
         app:floatingSearch_leftActionColor="@color/colorPrimaryDark"
         app:floatingSearch_leftActionMode="showSearch"
@@ -26,6 +26,13 @@
         app:floatingSearch_suggestionsListAnimDuration="250"
         app:floatingSearch_viewSuggestionItemTextColor="@color/colorPrimaryDark"
         app:floatingSearch_viewTextColor="@color/colorPrimaryDark" />
+
+    <FrameLayout
+        android:layout_below="@id/floating_search_view"
+        android:layout_above="@id/navigationView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/main_frame_layout"/>
 
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/loading_gif"

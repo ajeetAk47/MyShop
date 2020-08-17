@@ -101,7 +101,7 @@ public class LoginActivity extends AppCompatActivity {
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
-                        Log.e(TAG, "signInWithCredential:success");
+                        Log.d(TAG, "signInWithCredential:success");
                         final FirebaseUser user = mAuth.getCurrentUser();
                         // Create a new user with a first and last name
                         Log.d(TAG, "User Signed In");
@@ -114,7 +114,7 @@ public class LoginActivity extends AppCompatActivity {
                         db.collection("users").document(user.getUid()).get().addOnCompleteListener(task1 -> {
                             DocumentSnapshot document = task1.getResult();
                             if (document.exists()) {
-                                Log.e(TAG, "user Already Exist");
+                                Log.d(TAG, "user Already Exist");
                                 sendUserToHomeActivity();
                             } else {
                                 db.collection("users")

@@ -4,14 +4,19 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.arlib.floatingsearchview.FloatingSearchView;
 import com.codingprotocols.myshop.R;
+import com.codingprotocols.myshop.fragments.HomeFragment;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -33,22 +38,29 @@ public class HomeActivity extends AppCompatActivity {
     private FirebaseFirestore db;
     private SpaceNavigationView spaceNavigationView;
     private FloatingSearchView mSearchView;
+    private FrameLayout frameLayoutHome;
+    private FirebaseAnalytics mFirebaseAnalytics;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         Toolbar toolbar = findViewById(R.id.toolbar);
         TextView title = toolbar.findViewById(R.id.toolbar_title);
-        ImageView imageView=toolbar.findViewById(R.id.profile_pic);
+        ImageView imageView = toolbar.findViewById(R.id.profile_pic);
         setSupportActionBar(toolbar);
 
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
+        // Obtain the FirebaseAnalytics instance.
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
+
+        frameLayoutHome = findViewById(R.id.main_frame_layout);
+        setFragment(new HomeFragment());
         loadingGif = findViewById(R.id.loading_gif);
         loadingGif.setVisibility(View.VISIBLE);
-        mSearchView=findViewById(R.id.floating_search_view);
-        spaceNavigationView=findViewById(R.id.navigationView);
+        mSearchView = findViewById(R.id.floating_search_view);
+        spaceNavigationView = findViewById(R.id.navigationView);
         spaceNavigationView.initWithSaveInstanceState(savedInstanceState);
         spaceNavigationView.addSpaceItem(new SpaceItem("HOME", R.drawable.ic_baseline_home_24));
         spaceNavigationView.addSpaceItem(new SpaceItem("CATEGORY", R.drawable.ic_baseline_category_24));
@@ -68,8 +80,13 @@ public class HomeActivity extends AppCompatActivity {
                 } catch (Exception e) {
                     Log.e(TAG, "Profile fetch error");
                     Picasso.get().load(R.drawable.default_photo).into(imageView);
-                    title.setText("Name");
+                    title.setText("Hi, User");
                 }finally {
+                    Bundle bundle = new Bundle();
+                    bundle.putString(FirebaseAnalytics.Param.ITEM_ID, String.valueOf(title.getId()));
+                    bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, title.getText().toString());
+                    bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "user");
+                    mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
                     loadingGif.setVisibility(View.INVISIBLE);
                 }
             } else {
@@ -80,10 +97,13 @@ public class HomeActivity extends AppCompatActivity {
         spaceNavigationView.setSpaceOnClickListener(new SpaceOnClickListener() {
             @Override
             public void onCentreButtonClick() {
-                if (mSearchView.getVisibility()==View.VISIBLE){
-                    mSearchView.setVisibility(View.INVISIBLE);
-                }else if(mSearchView.getVisibility()==View.INVISIBLE){
-                    mSearchView.setVisibility(View.VISIBLE); }
+                if (mSearchView.getVisibility() == View.VISIBLE) {
+                    mSearchView.setVisibility(View.GONE);
+                    frameLayoutHome.setVisibility(View.VISIBLE);
+                } else if (mSearchView.getVisibility() == View.GONE) {
+                    mSearchView.setVisibility(View.VISIBLE);
+                    frameLayoutHome.setVisibility(View.GONE);
+                }
             }
 
             @Override
@@ -107,17 +127,24 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        mSearchView.setOnQueryChangeListener(new FloatingSearchView.OnQueryChangeListener() {
-            @Override
-            public void onSearchTextChanged(String oldQuery, final String newQuery) {
 
-                //get suggestions based on newQuery
+        // Search
+        mSearchView.setOnQueryChangeListener((oldQuery, newQuery) -> {
 
-                //pass them on to the search view
+            //get suggestions based on newQuery
+
+            //pass them on to the search view
 //                mSearchView.swapSuggestions(newSuggestions);
-            }
         });
 
+
+    }
+
+
+    private void setFragment(Fragment fragment) {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.main_frame_layout, fragment);
+        fragmentTransaction.commit();
     }
 
 
