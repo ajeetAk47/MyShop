@@ -1,26 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.HomeFragment">
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/banner_slide_view_page"
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_margin="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp" />
-
     <LinearLayout
-        android:id="@+id/deal_of_the_day_linear_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/banner_slide_view_page">
+        android:orientation="vertical">
 
-        <include layout="@layout/deals_of_day_layout"/>
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/banner_slide_view_page"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_margin="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp" />
+
+        <LinearLayout
+            android:id="@+id/deal_of_the_day_linear_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <include layout="@layout/deals_of_day_layout" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/top_picks_linear_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <include layout="@layout/top_picks_layout" />
+
+        </LinearLayout>
 
     </LinearLayout>
+</ScrollView>
 
-</RelativeLayout>

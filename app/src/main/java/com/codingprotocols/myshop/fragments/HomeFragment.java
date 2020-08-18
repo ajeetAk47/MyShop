@@ -16,12 +16,14 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.codingprotocols.myshop.R;
 import com.codingprotocols.myshop.adapters.BannerSliderAdapter;
 import com.codingprotocols.myshop.adapters.DealsOfTheDayAdapter;
+import com.codingprotocols.myshop.adapters.TopPicksLayoutAdapter;
 import com.codingprotocols.myshop.models.BannerSliderModel;
 import com.codingprotocols.myshop.models.BasicProductModel;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -145,9 +147,16 @@ public class HomeFragment extends Fragment {
         dealsOfTheDayRecyclerView.setAdapter(dealsOfTheDayAdapter);
         dealsOfTheDayAdapter.notifyDataSetChanged();
 
-
-
         // deal of the day
+
+        // Top picks for you
+        TextView topPicksTitle=view.findViewById(R.id.top_picks_title);
+        Button topPicksMoreButton=view.findViewById(R.id.top_picks_more_button);
+        GridView topPicksGridView=view.findViewById(R.id.top_picks_grid_view);
+
+        topPicksGridView.setAdapter(new TopPicksLayoutAdapter(basicProductModelList));
+
+        // top picks for you
 
         return view;
     }
