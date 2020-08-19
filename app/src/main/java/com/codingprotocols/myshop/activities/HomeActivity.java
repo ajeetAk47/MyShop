@@ -33,7 +33,7 @@ import pl.droidsonroids.gif.GifImageView;
 public class HomeActivity extends AppCompatActivity {
 
     private static final String TAG = "HomeActivity";
-    private GifImageView loadingGif;
+    private GifImageView loadingGif,searchGif;
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
     private SpaceNavigationView spaceNavigationView;
@@ -59,6 +59,7 @@ public class HomeActivity extends AppCompatActivity {
         setFragment(new HomeFragment());
         loadingGif = findViewById(R.id.loading_gif);
         loadingGif.setVisibility(View.VISIBLE);
+        searchGif=findViewById(R.id.search_gif);
         mSearchView = findViewById(R.id.floating_search_view);
         spaceNavigationView = findViewById(R.id.navigationView);
         spaceNavigationView.initWithSaveInstanceState(savedInstanceState);
@@ -99,9 +100,11 @@ public class HomeActivity extends AppCompatActivity {
             public void onCentreButtonClick() {
                 if (mSearchView.getVisibility() == View.VISIBLE) {
                     mSearchView.setVisibility(View.GONE);
+                    searchGif.setVisibility(View.GONE);
                     frameLayoutHome.setVisibility(View.VISIBLE);
                 } else if (mSearchView.getVisibility() == View.GONE) {
                     mSearchView.setVisibility(View.VISIBLE);
+                    searchGif.setVisibility(View.VISIBLE);
                     frameLayoutHome.setVisibility(View.GONE);
                 }
             }

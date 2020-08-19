@@ -2,11 +2,9 @@ package com.codingprotocols.myshop.fragments;
 
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Handler;
@@ -17,20 +15,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.GridView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.codingprotocols.myshop.R;
-import com.codingprotocols.myshop.adapters.BannerSliderAdapter;
-import com.codingprotocols.myshop.adapters.DealsOfTheDayAdapter;
+import com.codingprotocols.myshop.adapters.BannerSliderLayoutAdapter;
+import com.codingprotocols.myshop.adapters.DealsOfTheDayLayoutAdapter;
 import com.codingprotocols.myshop.adapters.TopPicksLayoutAdapter;
 import com.codingprotocols.myshop.models.BannerSliderModel;
 import com.codingprotocols.myshop.models.BasicProductModel;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -77,8 +71,8 @@ public class HomeFragment extends Fragment {
         bannerSliderViewPager=view.findViewById(R.id.banner_slide_view_page);
 
         bannerSliderModelList= new ArrayList<>();
-        BannerSliderAdapter bannerSliderAdapter=new BannerSliderAdapter(bannerSliderModelList);
-        bannerSliderViewPager.setAdapter(bannerSliderAdapter);
+        BannerSliderLayoutAdapter bannerSliderLayoutAdapter =new BannerSliderLayoutAdapter(bannerSliderModelList);
+        bannerSliderViewPager.setAdapter(bannerSliderLayoutAdapter);
         bannerSliderViewPager.setClipToPadding(false);
         bannerSliderViewPager.setPageMargin(20);
 
@@ -89,7 +83,7 @@ public class HomeFragment extends Fragment {
                 if (document.exists()) {
                     for (Map.Entry<String,Object> entry : Objects.requireNonNull(document.getData()).entrySet())
                         bannerSliderModelList.add(new BannerSliderModel((String) entry.getValue()));
-                        bannerSliderAdapter.notifyDataSetChanged();
+                        bannerSliderLayoutAdapter.notifyDataSetChanged();
                 } else {
                     Log.e(TAG, "No such document");
                 }
@@ -134,12 +128,13 @@ public class HomeFragment extends Fragment {
         basicProductModelList.add(new BasicProductModel("product 1","Rs. xyz",R.drawable.simple_logo));
         basicProductModelList.add(new BasicProductModel("product 2","Rs. xyz",R.drawable.simple_logo));
         basicProductModelList.add(new BasicProductModel("product 3","Rs. xyz",R.drawable.simple_logo));
-        basicProductModelList.add(new BasicProductModel("product 4","Rs. xyz",R.drawable.simple_logo));     basicProductModelList.add(new BasicProductModel("product 1","Rs. xyz",R.drawable.simple_logo));
+        basicProductModelList.add(new BasicProductModel("product 4","Rs. xyz",R.drawable.simple_logo));
         basicProductModelList.add(new BasicProductModel("product 5","Rs. xyz",R.drawable.simple_logo));
         basicProductModelList.add(new BasicProductModel("product 6","Rs. xyz",R.drawable.simple_logo));
         basicProductModelList.add(new BasicProductModel("product 7","Rs. xyz",R.drawable.simple_logo));
+        basicProductModelList.add(new BasicProductModel("product 8","Rs. xyz",R.drawable.simple_logo));
 
-        DealsOfTheDayAdapter dealsOfTheDayAdapter=new DealsOfTheDayAdapter(basicProductModelList);
+        DealsOfTheDayLayoutAdapter dealsOfTheDayAdapter=new DealsOfTheDayLayoutAdapter(basicProductModelList);
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
         linearLayoutManager.setOrientation(RecyclerView.HORIZONTAL);
         dealsOfTheDayRecyclerView.setLayoutManager(linearLayoutManager);

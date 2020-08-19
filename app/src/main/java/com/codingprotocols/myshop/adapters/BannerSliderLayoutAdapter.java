@@ -17,10 +17,10 @@ import com.codingprotocols.myshop.models.BannerSliderModel;
 
 import java.util.List;
 
-public class BannerSliderAdapter extends PagerAdapter {
+public class BannerSliderLayoutAdapter extends PagerAdapter {
     private List<BannerSliderModel> bannerSliderModelList;
 
-    public BannerSliderAdapter(List<BannerSliderModel> bannerSliderModelList) {
+    public BannerSliderLayoutAdapter(List<BannerSliderModel> bannerSliderModelList) {
         this.bannerSliderModelList = bannerSliderModelList;
     }
 

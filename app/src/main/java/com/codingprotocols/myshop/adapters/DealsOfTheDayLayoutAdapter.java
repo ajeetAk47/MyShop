@@ -14,23 +14,23 @@ import com.codingprotocols.myshop.models.BasicProductModel;
 
 import java.util.List;
 
-public class DealsOfTheDayAdapter extends RecyclerView.Adapter<DealsOfTheDayAdapter.ViewHolder> {
+public class DealsOfTheDayLayoutAdapter extends RecyclerView.Adapter<DealsOfTheDayLayoutAdapter.ViewHolder> {
 
     List<BasicProductModel> basicProductModels;
 
-    public DealsOfTheDayAdapter(List<BasicProductModel> basicProductModels) {
+    public DealsOfTheDayLayoutAdapter(List<BasicProductModel> basicProductModels) {
         this.basicProductModels = basicProductModels;
     }
 
     @NonNull
     @Override
-    public DealsOfTheDayAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
+    public DealsOfTheDayLayoutAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.basic_product_layout, viewGroup, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull DealsOfTheDayAdapter.ViewHolder viewHolder, int position) {
+    public void onBindViewHolder(@NonNull DealsOfTheDayLayoutAdapter.ViewHolder viewHolder, int position) {
 //        Glide.with(viewHolder.itemView.getContext())
 //                .load(basicProductModels.get(position).getProductImage())
 //                .apply(new RequestOptions().placeholder(R.drawable.banner_placeholder))

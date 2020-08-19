@@ -42,6 +42,15 @@
         android:src="@drawable/loading_gif"
         android:visibility="invisible" />
 
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/search_gif"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/search_gif"
+        android:visibility="invisible" />
+
+
     <com.luseen.spacenavigation.SpaceNavigationView
         android:id="@+id/navigationView"
         android:layout_width="match_parent"
