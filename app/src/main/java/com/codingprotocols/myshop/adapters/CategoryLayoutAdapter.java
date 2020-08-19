@@ -41,8 +41,8 @@ public class CategoryLayoutAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup viewGroup) {
         View view;
-        if (convertView == null) {
-            view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.category_item_layout, null);
+
+            view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.category_item_layout,null);
             ImageView productImage = view.findViewById(R.id.category_image);
             TextView productName = view.findViewById(R.id.category_name);
 
@@ -54,9 +54,6 @@ public class CategoryLayoutAdapter extends BaseAdapter {
 
             productImage.setImageResource(categoryModelList.get(position).getCategoryIcon());
             productName.setText(categoryModelList.get(position).getCategoryName());
-        } else {
-            view = convertView;
-        }
         return view;
     }
 }

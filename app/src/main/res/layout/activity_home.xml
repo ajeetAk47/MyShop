@@ -44,8 +44,8 @@
 
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/search_gif"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
         android:layout_centerInParent="true"
         android:src="@drawable/search_gif"
         android:visibility="invisible" />

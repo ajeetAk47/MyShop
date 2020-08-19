@@ -29,22 +29,23 @@ public class CategoryActivity extends AppCompatActivity {
         GridView categoryGridView=findViewById(R.id.category_grid_view);
 
         List<CategoryModel> categoryModelArrayList=new ArrayList<>();
-        categoryModelArrayList.add(new CategoryModel("Category 1",R.drawable.simple_logo));
-        categoryModelArrayList.add(new CategoryModel("Category 2",R.drawable.simple_logo));
-        categoryModelArrayList.add(new CategoryModel("Category 3",R.drawable.simple_logo));
-        categoryModelArrayList.add(new CategoryModel("Category 4",R.drawable.simple_logo));
-        categoryModelArrayList.add(new CategoryModel("Category 5",R.drawable.simple_logo));
-        categoryModelArrayList.add(new CategoryModel("Category 6",R.drawable.simple_logo));
-        categoryModelArrayList.add(new CategoryModel("Category 7",R.drawable.simple_logo));
-        categoryModelArrayList.add(new CategoryModel("Category 8",R.drawable.simple_logo));
-        categoryModelArrayList.add(new CategoryModel("Category 9",R.drawable.simple_logo));
-        categoryModelArrayList.add(new CategoryModel("Category 10",R.drawable.simple_logo));
-        categoryModelArrayList.add(new CategoryModel("Category 11",R.drawable.simple_logo));
-        categoryModelArrayList.add(new CategoryModel("Category 12",R.drawable.simple_logo));
-        categoryModelArrayList.add(new CategoryModel("Category 13",R.drawable.simple_logo));
-        categoryModelArrayList.add(new CategoryModel("Category 14",R.drawable.simple_logo));
-        categoryModelArrayList.add(new CategoryModel("Category 15",R.drawable.simple_logo));
+        categoryModelArrayList.add(new CategoryModel("Category1",R.drawable.simple_logo));
+        categoryModelArrayList.add(new CategoryModel("Category2",R.drawable.simple_logo));
+        categoryModelArrayList.add(new CategoryModel("Category3",R.drawable.simple_logo));
+        categoryModelArrayList.add(new CategoryModel("Category4",R.drawable.simple_logo));
+        categoryModelArrayList.add(new CategoryModel("Category5",R.drawable.simple_logo));
+        categoryModelArrayList.add(new CategoryModel("Category6",R.drawable.simple_logo));
+        categoryModelArrayList.add(new CategoryModel("Category7",R.drawable.simple_logo));
+        categoryModelArrayList.add(new CategoryModel("Category8",R.drawable.simple_logo));
+        categoryModelArrayList.add(new CategoryModel("Category9",R.drawable.simple_logo));
+        categoryModelArrayList.add(new CategoryModel("Category10",R.drawable.simple_logo));
+        categoryModelArrayList.add(new CategoryModel("Category11",R.drawable.simple_logo));
+        categoryModelArrayList.add(new CategoryModel("Category12",R.drawable.simple_logo));
+        categoryModelArrayList.add(new CategoryModel("Category13",R.drawable.simple_logo));
+        categoryModelArrayList.add(new CategoryModel("Category14",R.drawable.simple_logo));
+        categoryModelArrayList.add(new CategoryModel("Category15",R.drawable.simple_logo));
 
         categoryGridView.setAdapter(new CategoryLayoutAdapter(categoryModelArrayList));
+
     }
 }

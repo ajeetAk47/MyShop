@@ -3,6 +3,7 @@ package com.codingprotocols.myshop.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -134,6 +135,7 @@ public class HomeActivity extends AppCompatActivity {
         // Search
         mSearchView.setOnQueryChangeListener((oldQuery, newQuery) -> {
 
+            searchGif.setVisibility(View.GONE);
             //get suggestions based on newQuery
 
             //pass them on to the search view
