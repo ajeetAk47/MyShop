@@ -20,4 +20,7 @@
     <string name="specification">Specification</string>
     <string name="review">Review</string>
     <string name="product_image">Product Image</string>
+    <string name="rating">Rating</string>
+    <string name="rate_product">Rate Product</string>
+    <string name="default_rated_count">( 3 ratings )</string>
 </resources>
