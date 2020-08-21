@@ -10,4 +10,14 @@
     <string name="category">Category</string>
     <string name="image">Image</string>
     <string name="category_image">Category Image</string>
+    <string name="default_rating">3.5</string>
+    <string name="product_rating_star">Product Rating Star</string>
+    <string name="old_price">Old Price</string>
+    <string name="out_of_stock">Out of Stock</string>
+    <string name="add_to_cart">Add to Cart</string>
+    <string name="buy">Buy</string>
+    <string name="description">Description</string>
+    <string name="specification">Specification</string>
+    <string name="review">Review</string>
+    <string name="product_image">Product Image</string>
 </resources>

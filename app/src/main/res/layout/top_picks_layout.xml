@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
-    android:background="@drawable/slider_bg"
+    android:background="@drawable/custom_background"
     android:backgroundTint="@color/colorPrimaryDark"
     android:elevation="3dp"
     android:padding="8dp">

@@ -1,5 +1,6 @@
 package com.codingprotocols.myshop.adapters;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.codingprotocols.myshop.R;
+import com.codingprotocols.myshop.activities.ProductDetailsActivity;
 import com.codingprotocols.myshop.models.BasicProductModel;
 
 import java.util.List;
@@ -47,7 +49,7 @@ public class DealsOfTheDayLayoutAdapter extends RecyclerView.Adapter<DealsOfTheD
         return basicProductModels.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
 
         private ImageView productImage;
         private TextView productName;
@@ -57,6 +59,13 @@ public class DealsOfTheDayLayoutAdapter extends RecyclerView.Adapter<DealsOfTheD
             productImage=itemView.findViewById(R.id.product_image);
             productName=itemView.findViewById(R.id.product_name);
             productPrice=itemView.findViewById(R.id.product_price);
+
+            itemView.setOnClickListener(v -> {
+                Intent productDetailsIntent=new Intent(itemView.getContext(), ProductDetailsActivity.class);
+                productDetailsIntent.putExtra("name",productName.getText());
+                productDetailsIntent.putExtra("price",productPrice.getText());
+                itemView.getContext().startActivity(productDetailsIntent);
+            });
         }
     }
 }

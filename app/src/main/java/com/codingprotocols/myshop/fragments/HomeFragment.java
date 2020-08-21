@@ -23,6 +23,7 @@ import com.codingprotocols.myshop.adapters.DealsOfTheDayLayoutAdapter;
 import com.codingprotocols.myshop.adapters.TopPicksLayoutAdapter;
 import com.codingprotocols.myshop.models.BannerSliderModel;
 import com.codingprotocols.myshop.models.BasicProductModel;
+import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -47,6 +48,7 @@ public class HomeFragment extends Fragment {
     private List<BannerSliderModel> bannerSliderModelList;
     private int currentPage=1;
     private Timer timer;
+    private TabLayout viewPagerIndicator;
     // Banner end -- end
 
     // Deal of the day -- start
@@ -69,6 +71,7 @@ public class HomeFragment extends Fragment {
 
         // banner
         bannerSliderViewPager=view.findViewById(R.id.banner_slide_view_page);
+        viewPagerIndicator=view.findViewById(R.id.image_indicator);
 
         bannerSliderModelList= new ArrayList<>();
         BannerSliderLayoutAdapter bannerSliderLayoutAdapter =new BannerSliderLayoutAdapter(bannerSliderModelList);
@@ -91,6 +94,8 @@ public class HomeFragment extends Fragment {
                 Log.d(TAG, "get failed with ", task.getException());
             }
         });
+
+        viewPagerIndicator.setupWithViewPager(bannerSliderViewPager,true);
 
 //        ViewPager.OnPageChangeListener onPageChangeListener=new ViewPager.OnPageChangeListener() {
 //            @Override
@@ -125,14 +130,14 @@ public class HomeFragment extends Fragment {
         dealOfTheDayButton=view.findViewById(R.id.more_deals_button);
         dealsOfTheDayRecyclerView=view.findViewById(R.id.deals_of_the_day_recyclerview);
         List<BasicProductModel> basicProductModelList=new ArrayList<>();
-        basicProductModelList.add(new BasicProductModel("product 1","Rs. xyz",R.drawable.simple_logo));
-        basicProductModelList.add(new BasicProductModel("product 2","Rs. xyz",R.drawable.simple_logo));
-        basicProductModelList.add(new BasicProductModel("product 3","Rs. xyz",R.drawable.simple_logo));
-        basicProductModelList.add(new BasicProductModel("product 4","Rs. xyz",R.drawable.simple_logo));
-        basicProductModelList.add(new BasicProductModel("product 5","Rs. xyz",R.drawable.simple_logo));
-        basicProductModelList.add(new BasicProductModel("product 6","Rs. xyz",R.drawable.simple_logo));
-        basicProductModelList.add(new BasicProductModel("product 7","Rs. xyz",R.drawable.simple_logo));
-        basicProductModelList.add(new BasicProductModel("product 8","Rs. xyz",R.drawable.simple_logo));
+        basicProductModelList.add(new BasicProductModel("product 1","₹ xyz",R.drawable.simple_logo));
+        basicProductModelList.add(new BasicProductModel("product 2","₹ xyz",R.drawable.simple_logo));
+        basicProductModelList.add(new BasicProductModel("product 3","₹ xyz",R.drawable.simple_logo));
+        basicProductModelList.add(new BasicProductModel("product 4","₹ xyz",R.drawable.simple_logo));
+        basicProductModelList.add(new BasicProductModel("product 5","₹ xyz",R.drawable.simple_logo));
+        basicProductModelList.add(new BasicProductModel("product 6","₹ xyz",R.drawable.simple_logo));
+        basicProductModelList.add(new BasicProductModel("product 7","₹ xyz",R.drawable.simple_logo));
+        basicProductModelList.add(new BasicProductModel("product 8","₹ xyz",R.drawable.simple_logo));
 
         DealsOfTheDayLayoutAdapter dealsOfTheDayAdapter=new DealsOfTheDayLayoutAdapter(basicProductModelList);
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());

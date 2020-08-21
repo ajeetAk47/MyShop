@@ -1,5 +1,6 @@
 package com.codingprotocols.myshop.adapters;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.codingprotocols.myshop.R;
+import com.codingprotocols.myshop.activities.ProductDetailsActivity;
 import com.codingprotocols.myshop.models.BasicProductModel;
 
 import java.util.List;
@@ -53,6 +55,13 @@ public class TopPicksLayoutAdapter extends BaseAdapter {
             productImage.setImageResource(basicProductModelList.get(position).getProductImage());
             productName.setText(basicProductModelList.get(position).getProductName());
             productPrice.setText(basicProductModelList.get(position).getProductPrice());
+
+            view.setOnClickListener(v -> {
+                Intent productDetailsIntent=new Intent(v.getContext(), ProductDetailsActivity.class);
+                productDetailsIntent.putExtra("name",productName.getText());
+                productDetailsIntent.putExtra("price",productPrice.getText());
+                v.getContext().startActivity(productDetailsIntent);
+            });
         } else {
             view = convertView;
         }
