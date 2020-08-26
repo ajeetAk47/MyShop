@@ -57,7 +57,7 @@ public class DealsOfTheDayLayoutAdapter extends RecyclerView.Adapter<DealsOfTheD
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             productImage=itemView.findViewById(R.id.product_image);
-            productName=itemView.findViewById(R.id.product_name);
+            productName=itemView.findViewById(R.id.product_title);
             productPrice=itemView.findViewById(R.id.product_price);
 
             itemView.setOnClickListener(v -> {

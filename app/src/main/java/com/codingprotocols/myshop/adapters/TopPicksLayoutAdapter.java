@@ -43,7 +43,7 @@ public class TopPicksLayoutAdapter extends BaseAdapter {
         if (convertView == null) {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.basic_product_layout, null);
             ImageView productImage = view.findViewById(R.id.product_image);
-            TextView productName = view.findViewById(R.id.product_name);
+            TextView productName = view.findViewById(R.id.product_title);
             TextView productPrice = view.findViewById(R.id.product_price);
 
 //            Glide.with(view.getContext())

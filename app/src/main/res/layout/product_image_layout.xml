@@ -52,9 +52,9 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:background="@drawable/custom_background"
-            android:backgroundTint="#00FF00"
             android:orientation="horizontal"
             android:padding="5dp"
+            android:backgroundTint="#00FF00"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 

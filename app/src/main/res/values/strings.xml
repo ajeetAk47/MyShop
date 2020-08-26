@@ -31,4 +31,9 @@
     <string name="frequent_ask_questions">Frequent Ask Questions</string>
     <string name="terms_and_condition">Terms And Condition</string>
     <string name="privacy_policy">Privacy Policy</string>
+    <string name="continue_order">Continue</string>
+    <string name="total_amount">Total Amount</string>
+    <string name="final_amount_default">₹ xyz</string>
+    <string name="default_quantity">Qty: 1</string>
+    <string name="remove">Remove</string>
 </resources>
