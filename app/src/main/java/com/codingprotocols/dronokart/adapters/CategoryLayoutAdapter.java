@@ -1,4 +1,4 @@
-package com.codingprotocols.myshop.adapters;
+package com.codingprotocols.dronokart.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,11 +7,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
-import com.bumptech.glide.request.RequestOptions;
-import com.codingprotocols.myshop.R;
-import com.codingprotocols.myshop.models.CategoryModel;
+import com.codingprotocols.dronokart.R;
+import com.codingprotocols.dronokart.models.CategoryModel;
 
 import java.util.List;
 

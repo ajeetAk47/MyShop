@@ -1,4 +1,4 @@
-package com.codingprotocols.myshop.fragments;
+package com.codingprotocols.dronokart.fragments;
 
 import android.os.Bundle;
 
@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.codingprotocols.myshop.R;
+import com.codingprotocols.dronokart.R;
 
 public class ProductSpecificationFragment extends Fragment {
 

@@ -1,4 +1,4 @@
-package com.codingprotocols.myshop.activities;
+package com.codingprotocols.dronokart.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -9,9 +9,9 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.codingprotocols.myshop.R;
-import com.codingprotocols.myshop.adapters.ProductDetailsAdapter;
-import com.codingprotocols.myshop.adapters.ProductImageAdapter;
+import com.codingprotocols.dronokart.adapters.ProductDetailsAdapter;
+import com.codingprotocols.dronokart.adapters.ProductImageAdapter;
+import com.codingprotocols.dronokart.R;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;

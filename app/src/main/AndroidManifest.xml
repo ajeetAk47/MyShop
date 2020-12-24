@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.codingprotocols.myshop">
+    package="com.codingprotocols.dronokart">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
@@ -12,19 +12,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.ProductDetailsActivity" />
-        <activity android:name=".activities.CategoryActivity" />
-        <activity android:name=".activities.AccountActivity" />
-        <activity android:name=".activities.CartActivity" />
-        <activity android:name=".activities.HomeActivity" />
-        <activity android:name=".activities.WelcomeActivity">
+        <activity android:name="com.codingprotocols.dronokart.activities.ProductDetailsActivity" />
+        <activity android:name="com.codingprotocols.dronokart.activities.CategoryActivity" />
+        <activity android:name="com.codingprotocols.dronokart.activities.AccountActivity" />
+        <activity android:name="com.codingprotocols.dronokart.activities.CartActivity" />
+        <activity android:name="com.codingprotocols.dronokart.activities.HomeActivity" />
+        <activity android:name="com.codingprotocols.dronokart.activities.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.LoginActivity" />
+        <activity android:name="com.codingprotocols.dronokart.activities.LoginActivity" />
     </application>
 
 </manifest>

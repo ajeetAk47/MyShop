@@ -1,4 +1,4 @@
-package com.codingprotocols.myshop.fragments;
+package com.codingprotocols.dronokart.fragments;
 
 import android.os.Bundle;
 
@@ -17,12 +17,12 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
 
-import com.codingprotocols.myshop.R;
-import com.codingprotocols.myshop.adapters.BannerSliderLayoutAdapter;
-import com.codingprotocols.myshop.adapters.DealsOfTheDayLayoutAdapter;
-import com.codingprotocols.myshop.adapters.TopPicksLayoutAdapter;
-import com.codingprotocols.myshop.models.BannerSliderModel;
-import com.codingprotocols.myshop.models.BasicProductModel;
+import com.codingprotocols.dronokart.adapters.BannerSliderLayoutAdapter;
+import com.codingprotocols.dronokart.adapters.DealsOfTheDayLayoutAdapter;
+import com.codingprotocols.dronokart.adapters.TopPicksLayoutAdapter;
+import com.codingprotocols.dronokart.models.BannerSliderModel;
+import com.codingprotocols.dronokart.models.BasicProductModel;
+import com.codingprotocols.dronokart.R;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;

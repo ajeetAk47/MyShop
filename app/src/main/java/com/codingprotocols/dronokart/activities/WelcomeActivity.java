@@ -1,4 +1,4 @@
-package com.codingprotocols.myshop.activities;
+package com.codingprotocols.dronokart.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,9 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 
-import com.codingprotocols.myshop.R;
-import com.codingprotocols.myshop.activities.HomeActivity;
-import com.codingprotocols.myshop.activities.LoginActivity;
+import com.codingprotocols.dronokart.R;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class WelcomeActivity extends AppCompatActivity {

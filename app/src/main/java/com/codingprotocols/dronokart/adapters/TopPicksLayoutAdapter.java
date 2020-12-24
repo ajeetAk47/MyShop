@@ -1,4 +1,4 @@
-package com.codingprotocols.myshop.adapters;
+package com.codingprotocols.dronokart.adapters;
 
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -8,9 +8,9 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.codingprotocols.myshop.R;
-import com.codingprotocols.myshop.activities.ProductDetailsActivity;
-import com.codingprotocols.myshop.models.BasicProductModel;
+import com.codingprotocols.dronokart.R;
+import com.codingprotocols.dronokart.activities.ProductDetailsActivity;
+import com.codingprotocols.dronokart.models.BasicProductModel;
 
 import java.util.List;
 

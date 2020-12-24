@@ -1,13 +1,12 @@
-package com.codingprotocols.myshop.activities;
+package com.codingprotocols.dronokart.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.codingprotocols.myshop.R;
+import com.codingprotocols.dronokart.R;
 
 public class CartActivity extends AppCompatActivity {
 

@@ -1,19 +1,16 @@
-package com.codingprotocols.myshop.adapters;
+package com.codingprotocols.dronokart.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.codingprotocols.myshop.R;
-import com.codingprotocols.myshop.models.CartItemModel;
-
-import org.w3c.dom.Text;
+import com.codingprotocols.dronokart.R;
+import com.codingprotocols.dronokart.models.CartItemModel;
 
 import java.util.List;
 

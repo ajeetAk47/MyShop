@@ -1,4 +1,4 @@
-package com.codingprotocols.myshop;
+package com.codingprotocols.dronokart;
 
 import org.junit.Test;
 

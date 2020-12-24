@@ -1,13 +1,12 @@
-package com.codingprotocols.myshop.adapters;
+package com.codingprotocols.dronokart.adapters;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
-import com.codingprotocols.myshop.fragments.ProductDescriptionFragment;
-import com.codingprotocols.myshop.fragments.ProductSpecificationFragment;
+import com.codingprotocols.dronokart.fragments.ProductDescriptionFragment;
+import com.codingprotocols.dronokart.fragments.ProductSpecificationFragment;
 
 
 public class ProductDetailsAdapter extends FragmentStatePagerAdapter {

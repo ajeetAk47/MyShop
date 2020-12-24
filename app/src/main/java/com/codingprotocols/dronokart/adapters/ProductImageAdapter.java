@@ -1,4 +1,4 @@
-package com.codingprotocols.myshop.adapters;
+package com.codingprotocols.dronokart.adapters;
 
 import android.media.Image;
 import android.view.View;

@@ -1,4 +1,4 @@
-package com.codingprotocols.myshop.models;
+package com.codingprotocols.dronokart.models;
 
 public class BasicProductModel {
     private String productName;

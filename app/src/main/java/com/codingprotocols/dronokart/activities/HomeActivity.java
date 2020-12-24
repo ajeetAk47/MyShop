@@ -1,9 +1,8 @@
-package com.codingprotocols.myshop.activities;
+package com.codingprotocols.dronokart.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -15,8 +14,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.arlib.floatingsearchview.FloatingSearchView;
-import com.codingprotocols.myshop.R;
-import com.codingprotocols.myshop.fragments.HomeFragment;
+import com.codingprotocols.dronokart.R;
+import com.codingprotocols.dronokart.fragments.HomeFragment;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;

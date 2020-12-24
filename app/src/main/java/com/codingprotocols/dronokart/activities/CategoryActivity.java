@@ -1,4 +1,4 @@
-package com.codingprotocols.myshop.activities;
+package com.codingprotocols.dronokart.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -7,11 +7,9 @@ import android.os.Bundle;
 import android.widget.GridView;
 import android.widget.TextView;
 
-import com.codingprotocols.myshop.R;
-import com.codingprotocols.myshop.adapters.CategoryLayoutAdapter;
-import com.codingprotocols.myshop.adapters.TopPicksLayoutAdapter;
-import com.codingprotocols.myshop.models.BasicProductModel;
-import com.codingprotocols.myshop.models.CategoryModel;
+import com.codingprotocols.dronokart.adapters.CategoryLayoutAdapter;
+import com.codingprotocols.dronokart.models.CategoryModel;
+import com.codingprotocols.dronokart.R;
 
 import java.util.ArrayList;
 import java.util.List;

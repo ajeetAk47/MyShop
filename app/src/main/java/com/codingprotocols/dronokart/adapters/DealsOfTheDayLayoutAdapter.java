@@ -1,4 +1,4 @@
-package com.codingprotocols.myshop.adapters;
+package com.codingprotocols.dronokart.adapters;
 
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -10,9 +10,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.codingprotocols.myshop.R;
-import com.codingprotocols.myshop.activities.ProductDetailsActivity;
-import com.codingprotocols.myshop.models.BasicProductModel;
+import com.codingprotocols.dronokart.R;
+import com.codingprotocols.dronokart.activities.ProductDetailsActivity;
+import com.codingprotocols.dronokart.models.BasicProductModel;
 
 import java.util.List;
 

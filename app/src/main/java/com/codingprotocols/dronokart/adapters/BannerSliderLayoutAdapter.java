@@ -1,4 +1,4 @@
-package com.codingprotocols.myshop.adapters;
+package com.codingprotocols.dronokart.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,11 +9,10 @@ import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.resource.bitmap.CenterInside;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
-import com.codingprotocols.myshop.R;
-import com.codingprotocols.myshop.models.BannerSliderModel;
+import com.codingprotocols.dronokart.R;
+import com.codingprotocols.dronokart.models.BannerSliderModel;
 
 import java.util.List;
 
